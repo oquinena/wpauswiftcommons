@@ -33,9 +33,9 @@ func UploadFile(ctx context.Context, container string, prefix string, path strin
 		md5hash := hex.EncodeToString(hasher.Sum(nil))
 
 		fmt.Printf("Uploading %s to container %s\n", name, container)
-		file, err := c.ObjectCreate(container, name, false, md5hash, ext, nil)
+		file, err := c.ObjectCreate(ctx, container, name, false, md5hash, ext, nil)
 		if err != nil {
-			println(err.Error())
+			fmt.Printf("Error uploading file %s. %s", name, err)
 		} else {
 			file.Write(dat)
 		}
