@@ -5,7 +5,7 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 
 	swift "github.com/ncw/swift/v2"
@@ -19,7 +19,7 @@ func CreatePublicContainer(ctx context.Context, name string, c swift.Connection)
 }
 
 func UploadFile(ctx context.Context, container string, prefix string, path string, c swift.Connection) {
-	dat, err := ioutil.ReadFile(path)
+	dat, err := os.ReadFile(path)
 	if err != nil {
 		println(err.Error())
 	} else {
