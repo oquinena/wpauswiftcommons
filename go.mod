@@ -1,4 +1,4 @@
-module github.com/oquinena/wpauswiftcommons
+module github.com/FAST2/wpauswiftcommons
 
 go 1.18
 
